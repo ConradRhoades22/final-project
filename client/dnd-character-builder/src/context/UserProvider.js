@@ -9,7 +9,7 @@ export default function UserProvider(props){
     const initState = { 
         user: {}, 
         token: "", 
-        todos: []
+        characters: []
     }
 
     const [userState, setUserState] = useState(initState)

@@ -31,7 +31,7 @@ function handleLogin(e){
 
 return (
     <div className="auth-container">
-    <h1>Todo App</h1>
+    <h1>Character Creator App</h1>
     { !toggle ?
         <>
         <AuthForm 
