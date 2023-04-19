@@ -44,4 +44,4 @@ const characterSchema = new Schema({
         required: true
     }
 })
-module.export = mongoose.model("Character", characterSchema)
+module.exports = mongoose.model("Character", characterSchema)

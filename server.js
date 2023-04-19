@@ -8,14 +8,11 @@ const {expressjwt} = require('express-jwt')
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect(
-    process.env.MONGO_URL,
-    () => console.log('Connected to the DB')
-)
+mongoose.connect(process.env.MONGO_URI,() => console.log('Connected to the DB'))
 
-app.use('/auth', require('./routes/authRouter'))
+app.use('/auth', require('./routes/authRouter.js'))
 app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256']}))
-app.use('/api/character', require('./routes/characterRouter'))
+app.use('/api/character', require('./routes/characterRouter.js'))
 
 app.use ((err, req, res, next) => {
     console.log(err)

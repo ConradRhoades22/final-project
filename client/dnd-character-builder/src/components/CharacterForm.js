@@ -12,8 +12,9 @@ const initInputs = {
     charisma: 0,
 }
 
-export default function CharacterForm(){
+export default function CharacterForm(props){
     const [inputs, setInputs] = useState(initInputs)
+    const { addCharacter } = props
 
     function handleChange(e){
         const {name, value} = e.target
@@ -25,7 +26,8 @@ export default function CharacterForm(){
 
     function handleSubmit(e){
         e.preventDefault()
-        //add character
+        addCharacter(inputs)
+        setInputs(initInputs)
     }
 
     const { 
@@ -37,7 +39,7 @@ export default function CharacterForm(){
         constitution,
         intelligence,
         wisdom,
-        charisma
+        charisma,
     } = inputs
     return (
         <form onSubmit={handleSubmit}>
@@ -60,7 +62,7 @@ export default function CharacterForm(){
                 onChange={handleChange}
                 placeholder="SubClass" />
 
-                //number stats
+                {/* number stats */}
             <input
                 type="number"
                 name="strength"
