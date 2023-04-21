@@ -37,30 +37,32 @@ function handleLogin(e){
 
 return (
     <div className="auth-container">
-    <h1>Character Creator App</h1>
-    { !toggle ?
-        <>
-        <AuthForm 
-            handleChange={handleChange}
-            handleSubmit={handleSignup}
-            inputs={inputs}
-            btnText="Sign up"
-            errMsg={errMsg}
-        />
-        <p onClick={toggleForm}>Already a member?</p>
-        </>
-    :
-        <>
-        <AuthForm 
-            handleChange={handleChange}
-            handleSubmit={handleLogin}
-            inputs={inputs}
-            btnText="Login"
-            errMsg={errMsg}
-        />
-        <p onClick={toggleForm}>Not a member?</p>
-        </>
-    }
+        <div className='centerauth'>
+            <h1>Character Creator App</h1>
+            { !toggle ?
+                <>
+                <AuthForm 
+                    handleChange={handleChange}
+                    handleSubmit={handleSignup}
+                    inputs={inputs}
+                    btnText="Sign up"
+                    errMsg={errMsg}
+                />
+                <p onClick={toggleForm}>Already a member?</p>
+                </>
+            :
+                <>
+                <AuthForm 
+                    handleChange={handleChange}
+                    handleSubmit={handleLogin}
+                    inputs={inputs}
+                    btnText="Login"
+                    errMsg={errMsg}
+                />
+                <p onClick={toggleForm}>Not a member?</p>
+                </>
+            }   
+        </div>
     </div>
 )
 }

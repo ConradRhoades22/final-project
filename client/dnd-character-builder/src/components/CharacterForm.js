@@ -118,7 +118,7 @@ const allSubclasses = subclasses.map(item => [
     } = inputs
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="character-form">
             <input
                 type="text"
                 name="name"
@@ -139,42 +139,62 @@ const allSubclasses = subclasses.map(item => [
             </select>
 
                 {/*  stat inputs */}
-            <input
-                type="number"
-                name="strength"
-                value={strength}
-                onChange={handleChange}
-                placeholder="Strength" />
-            <input
-                type="number"
-                name="dexterity"
-                value={dexterity}
-                onChange={handleChange}
-                placeholder="Dexterity" />
-            <input
-                type="number"
-                name="constitution"
-                value={constitution}
-                onChange={handleChange}
-                placeholder="Constitution" />
-            <input
-                type="number"
-                name="intelligence"
-                value={intelligence}
-                onChange={handleChange}
-                placeholder="Intelligence" />
-            <input
-                type="number"
-                name="wisdom"
-                value={wisdom}
-                onChange={handleChange}
-                placeholder="Wisdom" />
-            <input
-                type="number"
-                name="charisma"
-                value={charisma}
-                onChange={handleChange}
-                placeholder="Charisma" />
+                <div className="stats">
+                    <div>
+                        <p>Strength</p>
+                        <input
+                            type="number"
+                            name="strength"
+                            value={strength}
+                            onChange={handleChange}
+                            placeholder="Strength" />
+                        </div> 
+                        <div>
+                        <p>Dexterity</p>
+                        <input
+                            type="number"
+                            name="dexterity"
+                            value={dexterity}
+                            onChange={handleChange}
+                            placeholder="Dexterity" />
+                        </div> 
+                        <div>
+                        <p>Constitution</p>
+                        <input
+                            type="number"
+                            name="constitution"
+                            value={constitution}
+                            onChange={handleChange}
+                            placeholder="Constitution" />
+                            </div> 
+                        <div>
+                        <p>Intelligence</p>
+                        <input
+                            type="number"
+                            name="intelligence"
+                            value={intelligence}
+                            onChange={handleChange}
+                            placeholder="Intelligence" />
+                            </div> 
+                        <div>
+                        <p>Wisdom</p>
+                        <input
+                            type="number"
+                            name="wisdom"
+                            value={wisdom}
+                            onChange={handleChange}
+                            placeholder="Wisdom" />
+                            </div> 
+                        <div>
+                        <p>Charisma</p>
+                        <input
+                            type="number"
+                            name="charisma"
+                            value={charisma}
+                            onChange={handleChange}
+                            placeholder="Charisma" />
+                        </div>
+                    </div>
             <button
             type="submit"
             >{ props.btnTxt }</button>

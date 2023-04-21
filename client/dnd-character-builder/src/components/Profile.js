@@ -19,16 +19,20 @@ export default function Profile(){
 
     return(
         <div className="profile">
-            <h1>Hello {username}.</h1>
-            <h3>Create another Character</h3>
-            <CharacterForm 
-                submit={addCharacter} 
-                btnTxt="Add Character" 
-            />
-            <h3>Your Characters:</h3>
-            <CharacterList  
-                characters={characters}
-            />
+            <div className="char-creator">
+                <h1>Hello {username}.</h1>
+                <h3>Create another Character</h3>
+                <CharacterForm 
+                    submit={addCharacter} 
+                    btnTxt="Add Character" 
+                />
+            </div>
+                <div className="profile-charlist">
+                <h1>Your Characters:</h1>
+                <CharacterList  
+                    characters={characters}
+                />
+            </div>
         </div>
     )
 }
