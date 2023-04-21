@@ -6,6 +6,10 @@ const characterSchema = new Schema({
         type: String,
         required: true,
     },
+    charRace: {
+        type: String,
+        required: true,
+    },
     charClass: {
         type: String,
         required: true,
@@ -42,6 +46,10 @@ const characterSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
+    },
+    createdAt: { 
+        type: Date,
+        default: Date.now
     }
 })
 module.exports = mongoose.model("Character", characterSchema)

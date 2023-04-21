@@ -21,6 +21,8 @@ characterRouter.get("/user", (req, res, next) => {
             return next(err)
         }
     return res.status(200).send(characters)
+    }).sort({
+        createdAt: -1
     })
 })
 
@@ -39,21 +41,21 @@ characterRouter.post("/", (req, res, next) => {
 
 //delete character
 characterRouter.delete("/:characterId", (req, res, next) => {
-    Character.findOneAndDelete(
+    Character.findByIdAndDelete(
         { _id: req.params.characterId, user: req.auth._id },
         (err, deletedCharacter) => {
         if(err){
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully delete character: ${deletedCharacter.title}`)
+        return res.status(200).send(`Successfully deleted character ${req.auth.name}`)
         }
     )
 })
 
 //update character
 characterRouter.put("/:characterId", (req, res, next) => {
-    Character.findOneAndUpdate(
+    Character.findByIdAndUpdate(
         { _id: req.params.characterId, user: req.auth._id },
         req.body,
         { new: true },

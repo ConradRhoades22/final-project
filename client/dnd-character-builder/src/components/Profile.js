@@ -1,5 +1,5 @@
-import React, { useContext }from "react"
-import Character from './Character.js'
+import React, { useContext, useEffect }from "react"
+import Character from "./Character.js"
 import CharacterList from'./CharacterList.js'
 import CharacterForm from './CharacterForm.js'
 import { UserContext } from "../context/UserProvider.js"
@@ -9,16 +9,26 @@ export default function Profile(){
     const { 
         user: { username }, 
         addCharacter,
-        characters
+        characters,
+        getUserCharacters,
     } = useContext(UserContext)
+
+    useEffect(() => {
+        getUserCharacters()
+    },[])
 
     return(
         <div className="profile">
-            <h1>Hello @{username}.</h1>
+            <h1>Hello {username}.</h1>
             <h3>Create another Character</h3>
-            <CharacterForm addCharacter={addCharacter}/>
+            <CharacterForm 
+                submit={addCharacter} 
+                btnTxt="Add Character" 
+            />
             <h3>Your Characters:</h3>
-            <CharacterList  characters={characters}/>
+            <CharacterList  
+                characters={characters}
+            />
         </div>
     )
 }
