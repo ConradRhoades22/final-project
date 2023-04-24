@@ -9,9 +9,16 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     letter-spacing: 1.5px;
 }
-.App {
-    background-color: #eeeef3;
-    min-height: 100vh;
+button {
+    width: fit-content;
+    justify-self: center;
+    background-color: #dbac89;
+    border: none;
+    padding: 10px 30px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color:white;
 }
 input, select{
     background-color: #fcf8f5;
@@ -19,6 +26,10 @@ input, select{
     padding: 10px;
     width: 400px;
     border: 2px solid #dbac89;
+}
+.App {
+    background-color: #eeeef3;
+    min-height: 100vh;
 }
 .navbar {
     display: flex;
@@ -31,9 +42,14 @@ input, select{
     top: 0;
     left: 0;
     right: 0;
-
+}
+.navbar a {
+    display:flex ;
+    align-items: center;
+    padding: 10px 30px;
 }
 .navbar a, .navbar button {
+    text-align: center;
     color: black;
     text-decoration: none;
     text-transform: uppercase;
@@ -44,6 +60,10 @@ input, select{
 .navbar a:hover, .navbar button:hover {
     cursor: pointer;
     color: #dbac89;
+}
+.navbar h1 {
+    color: black;
+    margin: auto;
 }
 .navbtn {
     justify-content: end;
@@ -61,6 +81,9 @@ input, select{
     background-color: #9eb8e9;
 }
 .edit-char {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #9eb8e9;
     width: fit-content;
     border: 2px solid black;
@@ -68,6 +91,11 @@ input, select{
     padding: 15px;
     margin: 10px;
     z-index: 10;
+    left: 26.5vw;
+    position: absolute;
+}
+.closebtn{
+    margin-top: 30px;
 }
 .character-list {
     display: grid;
@@ -132,7 +160,6 @@ input, select{
     row-gap: 5px;
 }
 .charbtn button {
-
     width: fit-content;
     justify-self: center;
     background-color: #dbac89;
@@ -146,6 +173,7 @@ input, select{
 .login {
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 20px;
 }
 .auth-container {
@@ -161,7 +189,77 @@ input, select{
     text-align: center;
     background-color: #fbece4;
     padding: 50px;
+    border: 1px solid grey
 }
-@media screen and (max-width: 820px){
-    
+.centerauth p:hover {
+    color: blue;
+}
+@media screen and (max-width: 820px) {
+    html {
+        width: fit-content;
+    }
+    .edit-char{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        align-items: center;
+        left: 3vw;
+    }
+    .closebtn{
+        margin-top: 30px;
+    }
+    .character-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .centerauth{
+        padding: 50px 20px;
+    }
+}
+@media screen and (max-width: 600px){
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items:center ;
+    }
+    .character-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .stats{
+        display: flex;
+        flex-direction: column;
+    }
+    .char-creator{
+        padding: 50px 30px;
+    }
+    input, select {
+        width: 300px;
+    }
+    .character-list {
+        display: flex ;
+        flex-direction: column;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .edit-char{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        right: 45px;
+        align-items: center;
+    }
+    .charbtn{
+        justify-content: space-between;
+    }
+    .profile-charlist{
+        padding: 50px 30px;
+    }
+    .closebtn{
+        margin-top: 30px;
+    }
 }

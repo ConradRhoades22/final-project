@@ -66,6 +66,7 @@ export default function Character(props){
                             setEditToggle={setEditToggle}
                         />
                         <button
+                        className="closebtn"
                         onClick={() => setEditToggle(prevToggle => !prevToggle)}
                         >Close</button>
                     </div>
