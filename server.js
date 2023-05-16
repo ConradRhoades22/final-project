@@ -1,12 +1,12 @@
-const express = require('express')
-const app = express()
-require('dotenv').config()
-const morgan = require('morgan')
-const mongoose = require('mongoose')
-const {expressjwt} = require('express-jwt')
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const {expressjwt} = require('express-jwt');
 
-app.use(express.json())
-app.use(morgan('dev'))
+app.use(express.json());
+app.use(morgan('dev'));
 
 mongoose.set('strictQuery', false);
 
