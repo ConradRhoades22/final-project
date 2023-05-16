@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const PORT = process.env.port || 3000;
 const {expressjwt} = require('express-jwt');
 
 app.use(express.json());
@@ -21,9 +22,9 @@ const connectDB = async () => {
     }
 }
 
-app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256']}))
-app.use('/api/character', require('./routes/characterRouter.js'))
+app.use('/auth', require('./routes/authRouter.js'));
+app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256']}));
+app.use('/api/character', require('./routes/characterRouter.js'));
 
 
 app.use ((err, req, res, next) => {
@@ -32,7 +33,7 @@ app.use ((err, req, res, next) => {
         res.status(err.status)
     }
     return res.send({errMsg: err.message})
-})
+});
 
 connectDB().then(() => {
     app.listen(PORT, () => {
