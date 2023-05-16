@@ -3,7 +3,7 @@ import CharacterForm from "./CharacterForm"
 import { UserContext } from "../context/UserProvider"
 
 export default function Character(props){
-    const { deleteCharacter, editCharacter, addCharacter, userState } = useContext(UserContext)
+    const { deleteCharacter, editCharacter, addCharacter, getOneCharacter } = useContext(UserContext)
     const [editToggle, setEditToggle] = useState(false)
 
     const { 
@@ -42,6 +42,7 @@ export default function Character(props){
                         className="edit-btn"
                         onClick={() => setEditToggle(prevToggle => !prevToggle)}
                         >Edit</button>
+                        <button onClick={() => getOneCharacter(_id)}>Info</button>
                     </div>
                 </>
                 :

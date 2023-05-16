@@ -87,7 +87,19 @@ function getUserCharacters(){
                 characters: res.data
             }))
         })
-        .catch(err => console.log(err.response.data.errMsg))
+    .catch(err => console.log(err.response.data.errMsg))
+}
+
+// get character by ID
+function getOneCharacter(characterId){
+    userAxios.get(`/api/character/${characterId}`)
+        .then((res) => {
+            setUserState(prevState => ({
+                ...prevState,
+                characters: res.data
+            }))
+        })
+    .catch(err => console.log(err.response.data.errMsg))
 }
 
 //Add character function
@@ -139,6 +151,7 @@ function editCharacter(updates, characterId){
                 logout,
                 addCharacter,
                 getUserCharacters,
+                getOneCharacter,
                 deleteCharacter,
                 editCharacter,
                 resetAuthErr,

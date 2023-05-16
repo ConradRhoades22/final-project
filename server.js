@@ -10,7 +10,16 @@ app.use(morgan('dev'))
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect(process.env.MONGO_URI,() => console.log('Connected to the DB'))
+mongoose.set('strictQuery', false);
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI)
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
+}
 
 app.use('/auth', require('./routes/authRouter.js'))
 app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256']}))
@@ -25,6 +34,8 @@ app.use ((err, req, res, next) => {
     return res.send({errMsg: err.message})
 })
 
-app.listen(9000, () => {
-    console.log("Server is running on local port 9000")
-})
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Listening on port: ${PORT}`);
+    })
+});

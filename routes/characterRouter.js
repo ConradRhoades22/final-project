@@ -26,6 +26,19 @@ characterRouter.get("/user", (req, res, next) => {
     })
 })
 
+//get character by Id
+characterRouter.get("/:characterId", (req, res, next) => {
+    Character.findById(
+        { _id: req.params.characterId, user: req.auth._id },
+        (err, character) => {
+            if(err){
+                res.status(500)
+            }
+        return res.status(200).send(character)
+        }
+    )
+})
+
 // add new character
 characterRouter.post("/", (req, res, next) => {
     req.body.user = req.auth._id
@@ -44,10 +57,10 @@ characterRouter.delete("/:characterId", (req, res, next) => {
     Character.findByIdAndDelete(
         { _id: req.params.characterId, user: req.auth._id },
         (err, deletedCharacter) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
+            if(err){
+                res.status(500)
+                return next(err)
+            }
         return res.status(200).send(`Successfully deleted character ${req.auth.name}`)
         }
     )
