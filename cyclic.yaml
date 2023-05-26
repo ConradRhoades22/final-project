@@ -1,8 +1,23 @@
 version: 1
 deployments:
-  web:
+  backend:
+    build:
+      - npm ci
+    publish:
+      root: .
+      include:
+        - server.js
+        - routes/**
+        - models/**
+        - .env
+
+  frontend:
     build:
       - npm ci
       - npm run build
     publish:
       root: build
+      include:
+        - index.html
+        - static/**
+
