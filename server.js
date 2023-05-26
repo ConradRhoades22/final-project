@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const PORT = process.env.port || 3000;
 const {expressjwt} = require('express-jwt');
+const fs = require('@cyclic.sh/s3fs/promises')(`cyclic-jade-funny-ant-us-west-2`)
 
 app.use(express.json());
 app.use(morgan('dev'));
