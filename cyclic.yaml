@@ -2,9 +2,10 @@ version: 1
 deployments:
   backend:
     build:
+      - cd backend
       - npm ci
     publish:
-      root: .
+      root: backend
       include:
         - server.js
         - routes/**
@@ -13,11 +14,11 @@ deployments:
 
   frontend:
     build:
+      - cd frontend
       - npm ci
       - npm run build
     publish:
-      root: build
+      root: frontend/build
       include:
         - index.html
         - static/**
-
